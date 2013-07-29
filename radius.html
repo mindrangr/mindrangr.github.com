@@ -1,0 +1,401 @@
+
+<!Doctype html>
+
+<head>
+	<title>Hello</title>
+	<script type="text/javascript" src="scripts/jquery-1.8.2.js"></script>
+	<link rel='stylesheet' href='styles/clock.css' type='text/css' />
+	<link href="http://cdn-images.mailchimp.com/embedcode/slim-081711.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		#mc_embed_signup{background:#fff; clear:left; font:14px helvetica,Arial,sans-serif; }
+		/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+		   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+	</style>
+	
+
+
+
+<style> 
+@font-face
+{
+font-family: myFirstFont;
+src: url(Fonts/Bariol/Bariol-Regular.otf);
+}
+
+div
+{
+font-family:myFirstFont;
+}
+</style>
+
+
+	<script type="text/javascript">
+		generateStyle();
+		
+		
+		function clickEffect(){
+			alert("clicked")
+		}
+
+		function goURL(page)
+		{
+
+			location.href="http://"+page;
+
+		}
+
+		
+		function generateStyle(){
+			var styleVar=navigator.userAgent;
+			alert(styleVar)
+			
+			if(styleVar.search(/Safari/gi)!=-1 && styleVar.search(/Chrome/i)==-1){
+				document.write("<link rel='stylesheet' href='styles/SafariStyle.css' type='text/css'>")
+			}
+				
+			if(styleVar.search(/Chrome/gi)!=-1){
+				document.write("<link rel='stylesheet' href='styles/Chrome.css' type='text/css'>");	
+						
+			}
+			
+			if(styleVar.search(/MSIE/gi)!=-1){
+				document.write("<link rel='stylesheet' href='styles/IEStyle.css' type='text/css'>");				
+			}
+
+			if(styleVar.search(/Android/gi)!=-1){
+				document.write("<link rel='stylesheet' href='styles/Android.css' type='text/css'>")
+							
+			}
+
+			if(styleVar.search(/Firefox/gi)!=-1){
+				document.write("<link rel='stylesheet' href='styles/Chrome.css' type='text/css'>")
+							
+			}		
+
+
+			if(styleVar.search(/(iPhone|iPod|iPad)/gi)!=-1){
+				alert("IPHONEfg")				
+			}			
+		}
+	
+		
+		
+		$(document).ready(function() {
+		  pulse();
+		  
+		 
+		  var yte=setInterval(function(){changeScene()},5000)
+		});
+		
+		
+		
+		var lastscene=1
+		function changeScene(){
+
+			var scene="scene"+lastscene;
+			jscene="#scene"+lastscene;
+			$(jscene).fadeOut(200);
+			//document.getElementById(scene).style.display="none";
+			lastscene=lastscene+1;
+
+			if(lastscene>3){
+				lastscene=1;
+			}
+			jscene="#scene"+lastscene;
+			$(jscene).fadeIn(600);
+
+		}
+		
+		
+		function changeBorder(obj,direction){
+		
+			if(direction=="over"){
+				$(obj).addClass("addBorder")
+			}
+			
+			if(direction=="out"){
+				$(obj).removeClass("addBorder")
+			}
+		
+		}
+		
+
+		function fade(obj,direction)
+		{
+			switch(direction)
+			{
+				case 'over':
+				obj.style.opacity=1;
+				break;
+
+				case 'out':
+				obj.style.opacity=.66;
+				break;
+			}
+		}
+
+		function pulse(){
+			$("#splash").fadeIn(700);
+			$("#splash").fadeOut(300);
+
+		}
+
+		
+		var lastPage="main"
+		function pageMachine(page,submenu,param){
+
+			
+			
+			document.getElementById(page).style.display="block";
+			document.getElementById(lastPage).style.display="none";
+			lastPage=page;
+
+		}
+
+
+
+		function goVid(page)
+		{
+			location.href=page;
+		}
+
+
+	</script>
+	
+</head>
+<body style="margin:auto;text-align:center;background-image:url('images/backGradient3.jpg');background-position:-140px -220px;" >
+
+	<div style="position:absolute;width:1200px;text-align:center;margin:auto;">
+	
+		<div id="main" class="MainDivs" style="display:block;">
+			<div style="padding-top:140px;">
+				<img src="images/wave3.png" />
+			</div>
+			<input type="button" value="splash" onclick="pageMachine('pageOne','none','none')" />
+		</div>
+
+
+		<div id="splash" class="MainDivs" >
+			<div style="padding-top:140px;">
+				<img src="images/wave1.png" />
+			</div>
+			
+		</div>
+
+		<div id="pageOne" class="MainDivs" >
+			<div style="width:100%;top:30px;margin:auto;text-align:center;">
+
+
+
+
+
+
+
+
+
+				<div class="mainImageSize" style="width:100%;font-family:helvetica;margin:auto;text-align:center;position:relative;z-index:5;">
+					<div style="height:130px;padding-top:54px;">
+						<div class="borderLtBlue" style="padding-top:6px;margin:auto;background-image:url('images/widerGradient.png');">
+							<div style="padding-right:15px;text-align:right;float:right;width:250px;">
+								<div class="socialLogoStyles"><img src="images/googlePlus1.png" height="25" /></div>
+								<div class="socialLogoStyles"><img src="images/twitter1.png" height="25"/></div>
+								<div class="socialLogoStyles"><img src="images/facebook_logo_detail1.png" height="25"/> </div> 
+								<div class="socialLogoStyles">
+									<div style="text-shadow:0px 4px 3px #000000;font-size:12px;margin-top:7px;">SHARE</div>
+								</div> 
+								<div style="clear:both"></div>
+							</div> 
+
+
+
+							<div style="float:left;width:350px;margin-left:30px;">
+								
+								<div class="poweredBy">
+									powered by
+								</div>
+								
+								<div style="float:left;cursor:pointer;">
+									<img src="images/TWC_logo.gif" class="TWC_logo" onclick="goURL('weather.com')" />
+								</div>
+
+								<div style="text-align:left;float:left;margin-left:25px;width:110px;cursor:pointer;">
+									<img src="images/wave1.png" height="40" onclick="clickEffect()"/>
+								</div>
+								<div style="clear:both"></div>
+							</div>
+
+
+							<div style="position:absolute;z-index:6;top:0px;margin:auto;width:500px;margin-left:353px;top:-39px;">
+								<img src="images/site_images/radius.png" />
+							</div>
+							<div style="clear:both"></div>
+						</div>
+					</div>
+
+					<div style="height:180px;color:#ffffff;font-size:26px;text-shadow:0px 1px 3px #696969;">
+
+
+						<!-- begin counter Widget -->
+					
+						<script  src="scripts/clock.js"></script>
+					
+						<!-- end counter Widget -->
+					
+				
+						<div class="dropShadow9 finalCountDown" >FINAL COUNTDOWN</div>
+					</div>
+					<div  style="height:180px;color:#ffffff;">
+						<div class="dropShadow9"  style="font-size:40px;letter-spacing:2px;">WEATHER IS ABOUT TO GET SOCIAL</div>
+						<div class="dropShadow9 sneakPeak" >Get a sneak peek of the upcoming iPhone App
+							<span class="dropShadow9" style="color:#D852A6;">RADIUS</span>
+							<br/>powered by The Weather Channel
+						</div>
+					</div>
+					<div style="height:120px;width:100%;">
+
+						<div class="dropShadow9" style="color:#ffffff;letter-spacing:2px;">BE NOTIFIED ON LAUNCH DAY</div>
+						<div style="width:295px;margin:auto;margin-top:8px;">
+							<!--<div style="float:left;">
+								<input type="textbox" value="Enter your e-mail" style="height:25px;width:200px;"> 
+							</div>
+							<div style="float:left;background-color:#091faa;width:85px;height:25px;color:#ffffff;padding-top:6px;font-size:13px">SUBMIT</div>-->
+
+
+							<div id="mc_embed_signup" style="background-color:transparent;">
+							<form action="http://weather.us7.list-manage.com/subscribe/post?u=67fc0e533c88073606ecf9a99&amp;id=212f971536" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+								
+								<div style="float:left;"><input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" style="width:120px;margin-right:15px;"required></div>
+								<div class="clear" style="float:left;"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+								<div style="clear:both"></div>
+							</form>
+							</div>
+
+							<div style="clear:both"></div>
+						</div>
+					</div>
+
+
+
+				</div>
+				<div class="fadinImages" id="scene1" style="background-image:url('images/Banner.png');display:block;">The lights came on in Necron 99</div>
+
+				<div class="fadinImages" id="scene2" style="background-image:url('images/yak.jpg');">Yakitty Yak don't talk back</div>
+				
+				<div class="fadinImages" id="scene3" style="background-image:url('images/honeybadger.jpg');">Baby honey badger don't care</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!-- About Section  -->
+				<div id="aboutSection"  class="aboutSection">
+					<div class="borderLtBlue_radial" style="padding-top:6px;font-family:helvetica;background-image:url('images/aboutGradient.png');background-color:transparent;">
+						<div class="borderHeading">ABOUT</div>
+					</div>
+					<div style="width:100%;background-image:url('images/aboutBack1.png');">
+						<div style="text-align:left;float:left;margin-left:35px;margin-top:25px;width:180px;">
+							<img src="images/wave1.png" height="140"/>
+						</div>
+
+						<div class="aboutText aboutHeight">
+							"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. "
+						</div>
+
+						<div style="clear:both"></div>
+					</div>
+				</div>
+
+				<!-- Photo Section  -->
+				<div id="Photos" class="aboutSection">
+					<div class="borderLtBlue" style="padding-top:0px;font-family:helvetica;background-image:url('images/photoGradient.png');background-color:transparent;">
+						<div class="borderHeading borderHeadingPhotos" style="float:left;margin-right:7px;">PHOTOS</div>
+							
+
+							<div class="poweredBy">
+								powered by
+							</div>
+
+							<div style="float:left;padding-top:11px;">
+								<img src="images/site_images/instagram1.png" style="height:30px;"/>
+							</div>
+							<div style="clear:both"></div>
+					</div>
+
+					<!-- Photos row 1 -->
+					<div style="background-color:blue;">
+						<div class="photoRack">
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/audi1.png" height="100%" width="100%"  /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/LadyGaga1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/kayak.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/Ksamil-beach-Albania-001.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/wizard1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" ><img src="images/site_images/ocho1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" id="lastPhoto1" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/tablet.png" height="100%" width="100%"  /></div>
+
+							<div class="imageSldr pixel1" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/lear.png" height="100%" width="100%" /></div>
+							<div style="clear:both;"></div>
+						</div>
+
+
+						<!-- Photos row 2 -->
+						<div class="photoRack">
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/wine1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/froggy1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr"  onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/LadyGaga1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/feature_google.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/baby1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/eddie-huang-back-in-taiwan-2.png" height="100%" width="100%" /></div>
+							<div class="imageSldr"  onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/wizard1.png" height="100%" width="100%" /></div>
+							<div class="imageSldr pixel1" onmouseover="changeBorder(this,'over')"      onmouseout="changeBorder(this,'out')"><img src="images/site_images/men-in-black-3.png" height="100%" width="100%" /></div>
+							
+
+
+							<div style="clear:both;"></div>
+
+
+						</div>	
+					</div>
+					
+
+				</div>
+
+
+				<!-- Footer -->
+				<div id="footer" class="footerHolder">
+					<div style="background-color:#011031;border:solid 1px #000000;height:160px;font-family:helvetica;">
+						
+						<div style="padding-top:50px;margin-left:30px">		
+							<div style="float:left;width:100px">
+								<img src="images/TWC_logo.gif"  />
+							</div>
+
+							<div style="float:left;margin-right:15px;width:600px;">
+								<div style="color:#1799d2;;font-size:12px;text-align:left;font-family:helvetica;margin-top:10px;">excepturi sint occaecati cupiditate non provident, similique sunt in culpa  mollitia animi, id est laborum et dolorum fuga. Et harum quidem in culpa  mollitia animi, id est laborum et dolorum fuga.</div>
+								<div style="color:#ffffff;font-size:15px;text-align:left;margin-top:10px;">&copy;WEATHER.com LLC COPYRIGHT 424 2013-2009 other legal stuff</div>
+							</div>
+							
+							<div style="clear:both"></div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+
+
+	</div>
+	
+
+	I think that you are being a little modest with the scoring of Kelly. I think he's likely to average 10 right away.
